@@ -1,10 +1,10 @@
 <template>
     <div class="post">
         <div>
-            <p>Title: <strong>{{post.title}}</strong></p>        
-            <p>Comment: <strong>{{post.comment}}</strong></p>     
+            <p v-if="post.title">Title: <strong>{{post.title}}</strong></p>        
+            <p v-if="post.comment">Comment: <strong>{{post.comment}}</strong></p>     
         </div>
-        <my-button  :index="post.id">Delete</my-button>
+        <my-button  @click="$emit('remove',post)">Delete</my-button>
     </div>
 </template>
 

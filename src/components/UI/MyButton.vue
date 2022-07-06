@@ -1,5 +1,5 @@
 <template>
-    <button @click="deletePost" class="btn">
+    <button class="btn">
         <slot></slot>
     </button>
 </template>
@@ -7,12 +7,6 @@
 <script>
     export default {
         name:"my-button",
-        props:{
-            index:{
-                type:Number,
-                required:true
-            }
-        },
       }
 </script>
 

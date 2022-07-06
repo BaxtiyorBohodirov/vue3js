@@ -1,5 +1,6 @@
 <template>
         <div class="form">
+            <h3>Create Post</h3>
             <form @submit.prevent>
                 <my-input 
                     v-model="post.title"

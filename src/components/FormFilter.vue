@@ -1,7 +1,8 @@
 <template>
      <div class="filter">
         <form @submit.prevent>
-            <input 
+            <input
+                v-model="modelValue" 
                 @input="filterPosts"
                 class="input" 
                 type="text" 
@@ -12,10 +13,15 @@
 
 <script>
 export default {
+    props:{
+        modelValue:{
+            type:String,
+        }
+    },
     methods:{
         filterPosts(event)
         {
-            this.$emit('filter',event.target.value);
+            this.$emit('update:modelValue',event.target.value);
         }
     }
 }

@@ -5,7 +5,11 @@
             <p v-if="post.title">Title: <strong>{{post.title}}</strong></p>        
             <p v-if="post.comment">Comment: <strong>{{post.comment}}</strong></p>     
         </div>
-        <my-button  style="margin-top:0px !important; align-self:unset"  @click="$emit('remove',post)">Delete</my-button>
+        <div class="buttons">
+            <my-button  style="margin-top:0px !important; align-self:unset"  @click="$router.push('/posts/'+post.id)">Read</my-button>
+            <my-button  style="margin-top:0px !important; align-self:unset"  @click="$emit('remove',post)">Delete</my-button>
+        </div>
+        
     </div>
 </template>
 

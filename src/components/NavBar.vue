@@ -1,13 +1,12 @@
 <template>
   <div class="navbar">
-    <div @click="$router.push('/')">
+    <div @click="$router.push('/')" style="cursor:pointer">
         Vue 3
     </div>
     <div class="buttons">
-        <my-button class="btn"  @click="$router.push('/user-page')">User Page</my-button>
-        <my-button class="btn" @click="$router.push('/about-page')">About Page</my-button>
+        <my-button class="btn"  @click="$router.push('/posts')">Posts Page</my-button>
+        <my-button class="btn" @click="$router.push('/about')">About Page</my-button>
     </div>
-    
   </div>
 </template>
 
@@ -41,5 +40,11 @@ export default {
         margin:0 !important;
         color: white;
         font-weight: bold;
+        cursor: pointer;
     }
+     .navbar .buttons .btn:hover
+     {
+        background-color: teal;
+        border: 2px solid aqua;
+     }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <my-input  class="search-arr" v-model="searchQuery" placeholder="Search..."/>
+        <my-input v-focus  class="search-arr" v-model="searchQuery" placeholder="Search..."/>
         <div class="buttons">
             <div>
                 <my-button style="margin:10px 15px 10px 0px" @click="showDialog">Add Post</my-button>
@@ -12,7 +12,7 @@
             <form-post @create="addPost"/>
         </my-dialog>
         <post-list :posts="sortedAndSearchedPosts" @remove="removePost"/>
-        <div ref="observer" class="observer"></div>
+        <div  v-intersection="loadMorePosts" class="observer"></div>
         <!-- <div class="post-loading">
             <h1>
                 Loading...
@@ -102,7 +102,6 @@ export default {
         },
         filterKeys()
         {   
-            console.log(this.posts)
             if(this.selectedSort==="id")
             {
                 this.posts=this.allposts.sort((post1,post2)=>{
@@ -114,7 +113,6 @@ export default {
                     return post1[this.selectedSort]?.localeCompare(post2[this.selectedSort])
                 })
             }
-             console.log(this.posts)
             return this.posts;               
         },
         async fetchPosts()
@@ -185,19 +183,7 @@ export default {
     },
     mounted()
     {
-        // this.fetchPosts();
-        const options = {
-        rootMargin: '0px',
-        threshold: 1.0
-        }
-        const callback = (entries, observer)=> {
-            if(entries[0].isIntersecting && this.totalPages > this.page)
-            {
-                this.loadMorePosts()
-            }
-        };
-        const observer = new IntersectionObserver(callback, options);
-        observer.observe(this.$refs.observer)
+        
         },
     computed:{
         sortedPost(){
@@ -213,9 +199,6 @@ export default {
         {
             this.fetchPosts()
         },
-        // page(){
-        //     this.fetchPosts()
-        // }
 
     }
 }

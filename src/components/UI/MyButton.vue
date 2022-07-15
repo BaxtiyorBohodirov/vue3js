@@ -20,4 +20,9 @@
         border: 2px solid teal;
         color:teal;
     }
+    .btn:hover
+    {
+        background-color: teal;
+        color: white;
+    }
 </style>

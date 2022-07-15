@@ -3,6 +3,7 @@
             <h3>Create Post</h3>
             <form @submit.prevent>
                 <my-input 
+                    v-focus
                     v-model="post.title"
                     placeholder="Title..." />
 

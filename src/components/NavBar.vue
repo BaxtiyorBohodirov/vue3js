@@ -6,6 +6,8 @@
     <div class="buttons">
         <my-button class="btn"  @click="$router.push('/posts')">Posts Page</my-button>
         <my-button class="btn" @click="$router.push('/about')">About Page</my-button>
+        <my-button class="btn" @click="$router.push('/store')">Store Page</my-button>
+        <my-button class="btn" @click="$router.push('/composition')">Composittion</my-button>
     </div>
   </div>
 </template>
